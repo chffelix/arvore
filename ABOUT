@@ -1,0 +1,4 @@
+This application is the management system for a collaborative network of services
+exchange called "Arvore" (this means "Tree" in portuguese).
+
+It is developed in Python using the web2py framework, and is licensed under the GPL.
