@@ -86,6 +86,7 @@ skip_files: |
  (contrib/(populate|taskbar_widget)\.py)|
  (google_appengine/.*)|
  (.*\.(bak|orig))|
+ (docs)|
  )$
 
 builtins:
