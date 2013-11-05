@@ -59,7 +59,7 @@
   <table id="TAB13" populated="true" UUID="d403332a-46e1-40ef-b12a-4b550f1dfb5b" name="auth_user" objectType="TABLE" physicalName="auth_user" >
    <remarks></remarks>
    <folder id="FOLTAB131" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL14" populated="true" UUID="e45081ea-08ed-4b1b-82c2-f771581e4066" autoIncrement="true" autoIncrementSequenceName="auth_user_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL14" populated="true" UUID="e45081ea-08ed-4b1b-82c2-f771581e4066" autoIncrement="false" autoIncrementSequenceName="auth_user_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL15" populated="true" UUID="1891aba5-cbc7-4cd5-92c0-4d90bf887ba6" autoIncrement="false" autoIncrementSequenceName="auth_user_first_name_seq" defaultValue="" name="first_name" nullable="0" physicalName="first_name" precision="128" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
@@ -112,9 +112,38 @@
     </index>
    </folder>
   </table>
+  <table id="TAB30" populated="true" UUID="44456b4a-5f0d-4d6c-a2f0-8c1bcf151e56" name="auth_user_services" objectType="TABLE" physicalName="auth_user_services" >
+   <remarks></remarks>
+   <folder id="FOLTAB301" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL31" populated="true" UUID="adbd1b3a-4cf5-44e8-80a0-f8105aa22da0" autoIncrement="false" autoIncrementSequenceName="auth_user_services_id_seq" defaultValue="" name="id" nullable="0" physicalName="id" precision="0" primaryKeySeq="0" referenceCount="3" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL32" populated="true" UUID="00fcbe24-41c9-40b9-8d8f-22637bcd03c6" autoIncrement="false" autoIncrementSequenceName="auth_user_services_auth_user_id_seq" defaultValue="" name="auth_user_id" nullable="0" physicalName="auth_user_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    <column id="COL33" populated="true" UUID="a260a887-c443-44f5-aace-8747f947c5fb" autoIncrement="false" autoIncrementSequenceName="auth_user_services_services_id_seq" defaultValue="" name="services_id" nullable="0" physicalName="services_id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB303" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB302" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB304" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX34" populated="true" UUID="a76f1acd-460d-4e9f-aabd-fbf53a6e7130" clustered="false" name="id" physicalName="id" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC35" populated="true" UUID="d5bec3f8-6b56-4939-be17-fcb5a1a94d90" ascendingOrDescending="UNSPECIFIED" column-ref="COL31" name="id" physicalName="id" />
+    </index>
+   </folder>
+  </table>
   <relationships>
-   <relationship id="REL30" populated="true" UUID="c0005f40-2b90-4e1a-98b4-f41aaa0486ed" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="6" identifying="true" name="service_status_services_fk" physicalName="service_status_services_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP31" populated="true" UUID="79d1b4b8-e1b1-46ea-ac33-b181c02bc697" fk-column-ref="COL5" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
+   <relationship id="REL36" populated="true" UUID="4007477f-fe7f-470f-9bdb-574c78abd422" deferrability="7" deleteRule="3" fk-table-ref="TAB30" fkCardinality="7" identifying="true" name="services_auth_user_services_fk" physicalName="services_auth_user_services_fk" pk-table-ref="TAB1" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP37" populated="true" UUID="1c986263-d9d6-44a2-8c50-54c9452a9033" fk-column-ref="COL33" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL2" />
+   </relationship>
+   <relationship id="REL38" populated="true" UUID="c0005f40-2b90-4e1a-98b4-f41aaa0486ed" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="6" identifying="true" name="service_status_services_fk" physicalName="service_status_services_fk" pk-table-ref="TAB8" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP39" populated="true" UUID="79d1b4b8-e1b1-46ea-ac33-b181c02bc697" fk-column-ref="COL5" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL9" />
+   </relationship>
+   <relationship id="REL40" populated="true" UUID="ffb4283a-cf7a-4b47-a379-cce42789da56" deferrability="7" deleteRule="3" fk-table-ref="TAB30" fkCardinality="7" identifying="true" name="auth_user_auth_user_services_fk" physicalName="auth_user_auth_user_services_fk" pk-table-ref="TAB13" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP41" populated="true" UUID="d8285615-395e-4c60-890a-4923024f66a4" fk-column-ref="COL32" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL14" />
    </relationship>
   </relationships>
  </target-database>
@@ -122,10 +151,13 @@
  <liquibase-settings useSeparateChangeSets="false" generateId="false" idStart="1"/>
  <create-kettle-job-settings filePath="" jobName="" schemaName="" kettleJoinType="0" savingToFile="true" />
  <play-pen zoom="1.0" viewportX="0" viewportY="0" relationship-style="rectilinear" names-displayLogicalNames="true" showPrimaryTag="true" showForeignTag="true" showAlternateTag="true" columnVisibility="ALL" relationshipLabelVisibility="true">
-  <table-pane table-ref="TAB1" x="380" y="245" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB8" x="630" y="311" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB1" x="361" y="74" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB8" x="611" y="140" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB13" x="51" y="166" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL30" pkConnection="0.48333333333333334" fkConnection="0.6555555555555556" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-pane table-ref="TAB30" x="360" y="300" bgColor="0xeeeeee" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL38" pkConnection="0.48333333333333334" fkConnection="0.6555555555555556" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="18"/>
+  <table-link relationship-ref="REL36" pkConnection="0.4930555555555556" fkConnection="0.5" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="132"/>
+  <table-link relationship-ref="REL40" pkConnection="0.36666666666666664" fkConnection="0.6666666666666666" rLineColor="0x333333" pkLabelText="" fkLabelText="" orientation="33"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">
